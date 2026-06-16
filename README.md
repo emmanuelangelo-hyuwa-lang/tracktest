@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# TrackTest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TrackTest is a music quiz web app that turns real albums into interactive song guessing games.
 
-Currently, two official plugins are available:
+Users can connect their Spotify account, search for an album, choose an album, and play a quiz generated from real track data. The app uses Spotify for album metadata and track lists, then uses iTunes previews to provide playable 30 second audio clips when available.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Spotify login with OAuth
+- Real album search using the Spotify Web API
+- Album cover display
+- Quiz generation from real album track lists
+- 30 second audio previews using the iTunes Search API
+- Multiple choice song guessing
+- Score tracking
+- Correct and wrong answer feedback
+- Restart quiz and choose another album flow
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Spotify Web API
+- iTunes Search API
+- CSS
+- Git and GitHub
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How It Works
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. The user logs in with Spotify.
+2. The user searches for an album.
+3. Spotify returns matching albums with cover art and metadata.
+4. The user selects an album.
+5. Spotify provides the track list for that album.
+6. TrackTest builds a quiz from the album tracks.
+7. iTunes previews are used to play short audio clips.
+8. The user guesses the correct song and receives score feedback.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Running Locally
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clone the repository:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```bash
+git clone https://github.com/uddy-oz/tracktest.git
